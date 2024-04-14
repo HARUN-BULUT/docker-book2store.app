@@ -6,22 +6,22 @@ services:
       MYSQL_DATABASE: bookstore_db
       MYSQL_USER: clarusway
       MYSQL_PASSWORD: Clarusway_1
-
+    
     networks:
       - booknet
-
+    
     volumes:
       - bookvolumes:/var/lib/mysql
   
-  myapp:
+  myapp: 
     build: .
     restart: always
     depends_on:
-    - database
+      - database
     ports:
-    - "80:80"
+      - "80:80"
     networks:
-    - booknet
+      - booknet
 networks:
   booknet:
     driver: bridge
